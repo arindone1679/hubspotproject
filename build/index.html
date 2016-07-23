@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="UTF-8" />
+<title>Page Title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="/src/css/layout.css" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+	<body ng-app="myApp">
+		<div>
+			<div class="testimonial-outer">
+	<div class="testimonial-inner">
+		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+		<span>Alex Rindone, scientist</span>
+	</div>
+</div>
+		</div>
+		<div>
+			<section class="cta" ng-controller="CtaController">
+	<div>
+		<p id="cta-txt">{{ctaHtml}}</p>
+		<a href="#" id="cta-button" ng-click="ctaClick()">Tell Me More</a>
+	</div>
+</section>
+		</div>
+		<div>
+			<section class="filterable-content" ng-controller="dataCtrl">
+	<div class="filter-head">
+		<div>
+			<div>
+				<div class="filter">
+					<div class="filter-picklist" id="genre">
+						<span class="genre" ng-click="genreClick()">Genre</span>
+						<div class="genre-picklist" ng-show="showGenre">
+							<label ng-repeat="(type, value) in itemtypes">
+								<input type="checkbox" ng-model="itemtypes[type]" /> {{type}}
+							</label>
+						</div>
+					</div>
+					<div class="filter-picklist" id="year" ng-click="yearClick()">
+						<span class="year">Year</span>
+						<div class="year-picklist" ng-show="showYear"></div>
+					</div>
+					<div class="search">
+						<input type="text" ng-model="searchBox">
+					</div>
+				</div>
+				<div class="dropdown">
+					<div>
+						<input type="radio" ng-model="filterType" name="filterButton" id="movie" value="movie">
+						<label>Movies</label>
+					</div>
+					<div>
+						<input type="radio" ng-model="filterType" name="filterButton" id="book" value="book">
+						<label>Books</label>
+					</div>
+					<div >
+						<a ng-click="filterType = {}; clearFilters()">Clear filters</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="movie-container">
+		<div ng-repeat="item in items | filter: filterType | filter: searchBox | itemtypefilter:itemtypes | orderBy:'title'" class="movie">
+		<img src="{{item.poster}}">
+			<div class="title">
+			{{item.title}} ({{item.year}})
+				<ul class="genre">
+					Genres: {{item.newGen}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+		</div>
+		<script type="text/javascript" src="/src/js/index.js"></script>
+	</body>
+</html>

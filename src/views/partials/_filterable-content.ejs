@@ -1,0 +1,50 @@
+<section class="filterable-content" ng-controller="dataCtrl">
+	<div class="filter-head">
+		<div>
+			<div>
+				<div class="filter">
+					<div class="filter-picklist" id="genre">
+						<span class="genre" ng-click="genreClick()">Genre</span>
+						<div class="genre-picklist" ng-show="showGenre">
+							<label ng-repeat="(type, value) in itemtypes">
+								<input type="checkbox" ng-model="itemtypes[type]" /> {{type}}
+							</label>
+						</div>
+					</div>
+					<div class="filter-picklist" id="year" ng-click="yearClick()">
+						<span class="year">Year</span>
+						<div class="year-picklist" ng-show="showYear"></div>
+					</div>
+					<div class="search">
+						<input type="text" ng-model="searchBox">
+					</div>
+				</div>
+				<div class="dropdown">
+					<div>
+						<input type="radio" ng-model="filterType" name="filterButton" id="movie" value="movie">
+						<label>Movies</label>
+					</div>
+					<div>
+						<input type="radio" ng-model="filterType" name="filterButton" id="book" value="book">
+						<label>Books</label>
+					</div>
+					<div >
+						<a ng-click="filterType = {}; clearFilters()">Clear filters</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="movie-container">
+		<div ng-repeat="item in items | filter: filterType | filter: searchBox | itemtypefilter:itemtypes | orderBy:'title'" class="movie">
+		<img src="{{item.poster}}">
+			<div class="title">
+			{{item.title}} ({{item.year}})
+				<ul class="genre">
+					Genres: {{item.newGen}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

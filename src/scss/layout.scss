@@ -1,0 +1,412 @@
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,400);
+@import 'fontawesome';
+
+// Breakpoints
+$small: 25em; // 400px
+$medium: 37.5em; // 600px
+$large: 56.25em; // 900px
+
+// Font Variables
+$montserrat: 'Montserrat', serif;   
+$roboto-slab: 'Robato Slab', sans-serif;
+
+// Styles
+body {
+  font-family: $montserrat;
+  font-weight: normal;
+  margin: 0 auto;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $montserrat;
+  font-weight: normal;
+}
+
+.button {
+  font-family: $roboto-slab;
+  font-weight: bold;
+}
+
+p {
+	font-size: 1em;
+}
+
+.testimonial-outer {
+	background-color: #f9f8f7;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    @media(min-width:$medium) {
+    	padding: 1em 3em;
+    }
+    @media(min-width:$large) {
+    	padding: 1em 10em;
+    }
+	.testimonial-inner {
+		position: relative;
+		box-sizing: border-box;
+		z-index: 1;
+		width: 100%;
+		padding: 2em;
+		padding-left: 1.25em;
+		p {
+			font-family: $roboto-slab;
+			line-height: 150%;
+    		font-weight: 300;
+    		margin-top: 0em;
+		}
+		span {
+			font-family: $montserrat;
+		}
+	}
+	.testimonial-inner:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		border-left: 2px solid #f5752f;
+		height: 200px;
+		top: 45px;
+		@media(min-width:$medium) {
+			height: 140px;
+		}
+		@media(min-width:$large) {
+			height: 150px;
+		}
+	}
+	.testimonial-inner:after {
+		content: '\201C';
+		position: absolute;
+		font-size: 3.5em;
+		top: 9px;
+		left: -11px;
+		color: #ffffff;
+		font-family: Georgia;
+	}
+}
+.testimonial-outer:before {
+	content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    background-color: #f5752f;
+    top: 260px;
+    left: 27px;
+    @media(min-width: $medium) {
+    	top: 200px;
+    	left: 43px;
+    }
+    @media(min-width: $large) {
+    	top: 200px;
+    	left: 155px;
+    }
+}
+.testimonial-outer:after {
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	background-color: #f5752f;
+	top: 27px;
+	left: 18px;
+	@media(min-width: $medium) {
+		top: 27px;
+		left: 34px;
+	}
+	@media(min-width: $large) {
+		top: 27px;
+		left: 146px;
+	}
+}
+
+.cta {
+	background-color: #12434b;
+	width:100%;
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+	-webkit-justify-content: center;
+    margin-bottom: 1.5em;
+	div {
+		display: flex;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		align-items: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		justify-content: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		flex-flow: row wrap;
+		width: 85%;
+		@media(min-width:$medium) {
+			flex-flow: inherit;
+		}
+		@media(min-width:$large) {
+			width: 70%;
+		}
+		p {
+			font-family: $roboto-slab;
+			color: #ffffff;
+			flex: 3 100%;
+			-ms-flex: 3 100%;
+			-webkit-box-flex: 3 100%;
+			-webkit-flex: 3 100%;
+			@media(min-width:$medium) {
+				flex: 3;
+				-ms-flex: 3;
+				-webkit-box-flex: 3;
+				-webkit-flex: 3;
+			}
+			line-height: 150%;
+			font-weight: 200;
+			padding: 1em;
+		}
+		a {
+			text-transform: uppercase;
+			font-family: $montserrat;
+			flex: 1 100%;
+			-ms-flex: 1 100%;
+			-webkit-box-flex: 1 100%;
+			-webkit-flex: 1 100%;
+			padding: 1em;
+			background-color: #1da1db;
+			text-align: center;
+			border-radius: 5px;
+			color: #ffffff;
+			text-decoration: none;
+			max-width: 150px;
+			margin-bottom: 1em;
+			@media(min-width: $medium) {
+				margin-bottom: 0;
+			}
+		}
+		a:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.filterable-content {
+	padding: 0 10%;
+	margin-bottom: 2em;
+    .filter-head {
+    	border: 2px solid #F2F2F2;
+    	width: 100%;
+    	height: 150px;
+    	@media(min-width: $large) {
+    		height: 130px;
+    	}
+    	div {
+    		div {
+    			position: relative;
+    			.filter {
+    				height: 150px;
+    				position: relative;
+    				@media(min-width: $large) {
+    					height: 130px;
+    				}
+    				#year.filter-picklist {
+    					height: 20px;
+    					right: 1em;
+    					top: 1em;
+    					@media(min-width: $medium) {
+    						right: initial;
+    						left: 166px;
+    					}
+    				}
+    				#genre.filter-picklist {
+    					height: 20px;
+    					left: 1em;
+    					top: 1em;
+    				}
+    				.filter-picklist {
+    					display: block;
+    					width: 100px;
+    					padding: 1em;
+    					background-color: #f9f9f9;
+    					border-bottom: 3px solid #e2e2e2;
+    					position: absolute;
+    					z-index: 3;
+    					color: #8e8e8e;
+    					span.genre:after, span.year:after {
+    						content: "\f078";
+    						font-family: FontAwesome;
+    						font-size: 1.05em;
+    						position: absolute;
+    						right: 1em;
+    					}
+    					.genre-picklist {
+    						background-color: #ffffff;
+    						position: absolute;
+    						top: 61px;
+    						left: 0;
+    						border: 2px solid #F2F2F2;
+    						z-index: 1;
+    						width: 200px;
+    						label {
+    							display: block;
+    							padding: 0.5em;
+    							border-bottom: 2px solid #F2F2F2;
+    							text-transform: uppercase;
+    							font-size: 0.9em;
+    							input {
+    								vertical-align: top;
+    							}
+    						}
+    					}
+    					.genre-picklist:before {
+    						content: "";
+    						display: block;
+    						width: 0; 
+    						height: 0; 
+    						border-left: 12px solid transparent;
+    						border-right: 12px solid transparent;
+    						border-bottom: 9px solid #F2F2F2;
+    						position: absolute;
+    						top: -9px;
+    						left: 26px;
+    					}
+    					.genre-picklist:after {
+    						content: "";
+    						display: block;
+    						width: 0;
+    						height: 0;
+    						border-left: 10px solid transparent;
+    						border-right: 10px solid transparent;
+    						border-bottom: 7px solid #ffffff;
+    						position: absolute;
+    						top: -6px;
+    						left: 28px;
+    					}
+    					.year-picklist {
+
+    					}
+    					span {
+    						text-transform: uppercase;
+    						float: left;
+    					}
+    				}
+					.search {
+						position: absolute;
+						bottom: 37px;
+						right: 4px;
+						width: 200px;
+						@media(min-width: $medium) {
+							width: 162px;
+							top: 1em;
+						}
+						@media(min-width: $large) {
+							right: 1.4em;
+						}
+						input {
+							height: 2em;
+							width: 100%;
+							border: 2px solid #F2F2F2;
+						}
+					}
+					.search:after {
+						content: '\f002';
+						font-family: FontAwesome;
+						position: absolute;
+						right: 0;
+						top: 5px;
+						color: #8e8e8e;
+						z-index: 3;
+					}
+    			}
+    			.dropdown {
+					position: absolute;
+					bottom: 7px;
+					left: 12px;
+					right: 12px;
+					clear: left;
+					@media(min-width: $large) {
+						bottom: 1em;
+						left: 1em;
+						right: 1em;
+					}
+					div {
+						float: left;
+						+ div {
+							margin-left: 0.5em;
+							+ div {
+								float: right;
+								a {
+									color: #4cadde;
+									text-transform: uppercase;
+									text-decoration: underline;
+								}
+								a:hover {
+									cursor: pointer;
+								}
+							}
+						}
+					}
+    			}
+    		}
+    	}
+    }
+    .movie-container {
+    	border-left: 2px solid #F2F2F2;
+    	border-right: 2px solid #F2F2F2;
+    	border-bottom: 2px solid #F2F2F2;
+    	width: 100%;
+    	text-align: center;
+    	@media(min-width: $medium) {
+    		text-align: left;
+    	}
+    	.movie {
+			display: inline-block;
+			vertical-align: top;
+			padding: 1em;
+			box-sizing: border-box;
+			width: 100%;
+			@media(min-width: $medium) {
+				width: 50%;
+			}
+			@media(min-width: $large) {
+				width: 33.33%;
+			}
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+			.title {
+				padding: 1em 0;
+			}
+			.genre {
+				list-style: none;
+				margin: 0;
+				padding: 0.5em 0;
+				text-transform: capitalize;
+			}
+    	}
+    	.movie:nth-child(1n+2) {
+    		@media(min-width: $medium) {
+    			clear: left;
+    		}
+    	}
+    	.movie:nth-child(3n+1) {
+    		@media(min-width: $large) {
+    			clear: left;
+    		}
+    	}
+    }
+}
